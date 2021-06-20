@@ -32,9 +32,9 @@ class fsMiniProj
                 case 3:
                 obj.search();
                 break;
-                /*case 4:
+                case 4:
                 obj.modify();
-                break;*/
+                break;
                 case 5:
                 System.out.println("You chose exit!");
                 System.exit(0);
@@ -70,7 +70,7 @@ class fsMiniProj
         if(branch.equalsIgnoreCase("ise")){
         for (int i=1;i<=4;i++){
                 BufferedReader br = new BufferedReader(new FileReader("ise/"+i+".txt"));
-                System.out.println("*Students of sem:"+i+"*");
+                System.out.println("Students of sem:"+i+"");
                     while((s = br.readLine())!=null)
                     {
                         String[] result = s.split("\\|");
@@ -88,7 +88,7 @@ class fsMiniProj
     if(branch.equalsIgnoreCase("cse")){
         for (int i=1;i<=4;i++){
         BufferedReader br = new BufferedReader(new FileReader("cse/"+i+".txt"));
-        System.out.println("*Students of sem:"+i+"*");
+        System.out.println("Students of sem:"+i+"");
         while((s = br.readLine())!=null)
         {
             String[] result = s.split("\\|");
@@ -105,7 +105,7 @@ class fsMiniProj
     if(branch.equalsIgnoreCase("tce")){
         for (int i=1;i<=4;i++){
         BufferedReader br = new BufferedReader(new FileReader("tce/"+i+".txt"));
-        System.out.println("*Students of sem:"+i+"*");
+        System.out.println("Students of sem:"+i+"");
         while((s = br.readLine())!=null)
         {
             String[] result = s.split("\\|");
@@ -122,7 +122,7 @@ class fsMiniProj
     if(branch.equalsIgnoreCase("ece")){
         for (int i=1;i<=4;i++){
         BufferedReader br = new BufferedReader(new FileReader("ece/"+i+".txt"));
-        System.out.println("*Students of sem:"+i+"*");
+        System.out.println("Students of sem:"+i+"");
         while((s = br.readLine())!=null)
         {
             String[] result = s.split("\\|");
@@ -144,10 +144,10 @@ class fsMiniProj
         String name = "", usn = "", phno="",dob="", r;
         System.out.print("Enter the usn of the student to search: ");
         String usn1 = scan.nextLine();
+        int flag=0;
         if(usn1.contains("cs")){
             for (int i=1;i<=4;i++){
                 BufferedReader br = new BufferedReader(new FileReader("cse/"+i+".txt"));
-                int flag=0;
                 while((r= br.readLine()) !=null)
                     {   
                         String[] result = r.split("\\|");
@@ -157,25 +157,24 @@ class fsMiniProj
                             name=result[1];
                             phno= result[2];
                             dob=result[3];
-                            System.out.println("Record found in year "+ i + ". The details of the record are:");
+                            System.out.println("Record found in year "+ i );
                             System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: " + i + "\nbranch: CSE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
                             br.close();
                             flag=1;
                             return;
                         }
                     }
-                    if(flag==0)
-                        {
-                            System.out.println("Record NOT found in year "+ i);
-                            System.out.println();
-                            br.close(); 
-                        }
+                    br.close();  
             }
+            if(flag==0)
+                        {
+                            System.out.println("Record NOT found");
+                            System.out.println(); 
+                        }
         }
         if(usn1.contains("is")){
             for (int i=1;i<=4;i++){
                 BufferedReader br = new BufferedReader(new FileReader("ise/"+i+".txt"));
-                int flag=0;
                 while((r= br.readLine()) !=null)
                     {   
                         String[] result = r.split("\\|");
@@ -185,25 +184,25 @@ class fsMiniProj
                             name=result[1];
                             phno= result[2];
                             dob=result[3];
-                            System.out.println("Record found in year "+ i + ". The details of the record are:");
+                            System.out.println("Record found in year "+ i );
+                            System.out.println("The details of the record are:");
                             System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: " + i + "\nbranch: ISE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
                             br.close();
                             flag=1;
                             return;
                         }
                     }
-                    if(flag==0)
-                        {
-                            System.out.println("Record NOT found in year "+ i);
-                            System.out.println();
-                            br.close(); 
-                        }
+                    br.close();
             }
+            if(flag==0)
+                        {
+                            System.out.println("Record NOT found");
+                            System.out.println(); 
+                        }
         }
         if(usn1.contains("tc")){
             for (int i=1;i<=4;i++){
                 BufferedReader br = new BufferedReader(new FileReader("tce/"+i+".txt"));
-                int flag=0;
                 while((r= br.readLine()) !=null)
                     {   
                         String[] result = r.split("\\|");
@@ -213,25 +212,25 @@ class fsMiniProj
                             name=result[1];
                             phno= result[2];
                             dob=result[3];
-                            System.out.println("Record found in year "+ i + ". The details of the record are:");
+                            System.out.println("Record found in year "+ i );
+                            System.out.println("The details of the record are:");
                             System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: " + i + "\nbranch: TCE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
                             br.close();
                             flag=1;
                             return;
                         }
                     }
-                    if(flag==0)
-                        {
-                            System.out.println("Record NOT found in year "+ i);
-                            System.out.println();
-                            br.close(); 
-                        }
+                        br.close(); 
+            }
+            if(flag==0)
+            {
+                System.out.println("Record NOT found");
+                System.out.println();
             }
         }
         if(usn1.contains("ec")){
             for (int i=1;i<=4;i++){
                 BufferedReader br = new BufferedReader(new FileReader("ece/"+i+".txt"));
-                int flag=0;
                 while((r= br.readLine()) !=null)
                     {   
                         String[] result = r.split("\\|");
@@ -241,19 +240,20 @@ class fsMiniProj
                             name=result[1];
                             phno= result[2];
                             dob=result[3];
-                            System.out.println("Record found in year "+ i + ". The details of the record are:");
+                            System.out.println("Record found in year "+ i );
+                            System.out.println("The details of the record are:");
                             System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: " + i + "\nbranch: ECE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
                             br.close();
                             flag=1;
                             return;
                         }
                     }
-                    if(flag==0)
-                        {
-                            System.out.println("Record NOT found in year "+ i);
-                            System.out.println();
-                            br.close(); 
-                        }
+                     br.close(); 
+            }
+            if(flag==0)
+            {
+                System.out.println("Record NOT found");
+                System.out.println();
             }
         }
     }
@@ -262,44 +262,235 @@ class fsMiniProj
 
 
     {
-        String name = "", usn = "", sem = "", branch = "", r;
-        File file = new File("student.txt");
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        File temp = new File("temp.txt");
-        PrintWriter pw = new PrintWriter(temp);
+        String name = "", usn = "", dob = "", phno="",r;
+        int flag=0;
         System.out.println("Enter usn");
         String usn1 = scan.nextLine();
-        while((r= br.readLine()) !=null)
-        {
-            String[] result = r.split("\\|");
-            name=result[0];
-            usn=result[1];
-            sem= result[2];
-            branch=result[3];
-            if(usn.equals(usn1))
-            {
-                System.out.println("The details are: " + name + " " + usn + " " + sem + " " + branch);
-                System.out.println("enter name, usn,sem and branch");
-                String name11 = scan.nextLine();
-                String usn11 = scan.nextLine();
-                String sem11 = scan.nextLine();
-                String branch11 = scan.nextLine();
-                String b = name11+"|"+usn11+"|"+sem11+"|"+branch11+"|";
-                pw.println(b);
-                
+        String v=hash1(usn1);
+        if(usn1.contains("cs")){           
+                File temp = new File("cse/temp.txt");
+                PrintWriter pw = new PrintWriter(temp);
+                File file = new File("cse/"+v+".txt");
+                BufferedReader br = new BufferedReader(new FileReader(file));               
+                while((r= br.readLine()) !=null)
+                    {   
+                        String[] result = r.split("\\|");
+                        usn=result[0];
+                        if(usn.equals(usn1))
+                        {   
+                            name=result[1];
+                            phno= result[2];
+                            dob=result[3];
+                            System.out.println("Record found");
+                            System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: "+v  + "\nbranch: CSE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
+                            System.out.print("enter Name: ");
+                            String name11 = scan.nextLine();            
+                            System.out.print("enter phno: ");
+                            String phno11 = scan.nextLine();
+                            System.out.print("enter dob: ");
+                            String dob11 = scan.nextLine();
+                            System.out.print("enter branch: ");
+                            String branch11 = scan.nextLine();
+                            if(!branch11.equalsIgnoreCase("CSE")){
+                                System.out.print("enter USN: ");
+                                String usn11 = scan.nextLine();
+                                System.out.print("enter Year of Studying: ");
+                                String year = scan.nextLine();
+                                String key=hashTable(branch11,year);
+                                write(name11,usn11,phno11,dob11,key);
+                                flag=1;
+                            }
+                            if(flag!=1){
+                                String b = usn + "|" + name11 + "|" + phno11 + "|" + dob11 + "|";
+                                pw.println(b);
+                                flag=1;
+                            }
+                        }
+                        else {
+                            pw.println(r);
+                        }
+                    
+                  }  //while end
+                    br.close();
+                    pw.flush();
+                    pw.close();
+                    file.delete();
+                    temp.renameTo(file);
+
+                    //System.out.println("File Modified"); 
             }
-            else
-            {
-                pw.println(r);
+
+            if(usn1.contains("is")){           
+                File temp = new File("ise/temp.txt");
+                PrintWriter pw = new PrintWriter(temp);
+                File file = new File("ise/"+v+".txt");
+                BufferedReader br = new BufferedReader(new FileReader(file));               
+                while((r= br.readLine()) !=null)
+                    {   
+                        String[] result = r.split("\\|");
+                        usn=result[0];
+                        if(usn.equals(usn1))
+                        {   
+                            name=result[1];
+                            phno= result[2];
+                            dob=result[3];
+                            System.out.println("Record found");
+                            System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: "+v  + "\nbranch: ISE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
+                            System.out.print("enter Name: ");
+                            String name11 = scan.nextLine();            
+                            System.out.print("enter phno: ");
+                            String phno11 = scan.nextLine();
+                            System.out.print("enter dob: ");
+                            String dob11 = scan.nextLine();
+                            System.out.print("enter branch: ");
+                            String branch11 = scan.nextLine();
+                            if(!branch11.equalsIgnoreCase("ISE")){
+                                System.out.print("enter USN: ");
+                                String usn11 = scan.nextLine();
+                                System.out.print("enter Year of Studying: ");
+                                String year = scan.nextLine();
+                                String key=hashTable(branch11,year);
+                                write(name11,usn11,phno11,dob11,key);
+                                flag=1;
+                            }
+                            if(flag!=1){
+                                String b = usn + "|" + name11 + "|" + phno11 + "|" + dob11 + "|";
+                                pw.println(b);
+                                flag=1;
+                            }
+                        }
+                        else {
+                            pw.println(r);
+                        }
+                    
+                  }  //while end
+                    br.close();
+                    pw.flush();
+                    pw.close();
+                    file.delete();
+                    temp.renameTo(file);
+
+                    //System.out.println("File Modified"); 
             }
-        }
-        pw.flush();
-        pw.close();
-        br.close();
-        file.delete();
-        temp.renameTo(file);
-        System.out.println("File Modified");
-    }
+
+            if(usn1.contains("tc")){           
+                File temp = new File("tce/temp.txt");
+                PrintWriter pw = new PrintWriter(temp);
+                File file = new File("tce/"+v+".txt");
+                BufferedReader br = new BufferedReader(new FileReader(file));               
+                while((r= br.readLine()) !=null)
+                    {   
+                        String[] result = r.split("\\|");
+                        usn=result[0];
+                        if(usn.equals(usn1))
+                        {   
+                            name=result[1];
+                            phno= result[2];
+                            dob=result[3];
+                            System.out.println("Record found");
+                            System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: "+v  + "\nbranch: TCE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
+                            System.out.print("enter Name: ");
+                            String name11 = scan.nextLine();            
+                            System.out.print("enter phno: ");
+                            String phno11 = scan.nextLine();
+                            System.out.print("enter dob: ");
+                            String dob11 = scan.nextLine();
+                            System.out.print("enter branch: ");
+                            String branch11 = scan.nextLine();
+                            if(!branch11.equalsIgnoreCase("TCE")){
+                                System.out.print("enter USN: ");
+                                String usn11 = scan.nextLine();
+                                System.out.print("enter Year of Studying: ");
+                                String year = scan.nextLine();
+                                String key=hashTable(branch11,year);
+                                write(name11,usn11,phno11,dob11,key);
+                                flag=1;
+                            }
+                            if(flag!=1){
+                                String b = usn + "|" + name11 + "|" + phno11 + "|" + dob11 + "|";
+                                pw.println(b);
+                                flag=1;
+                            }
+                        }
+                        else {
+                            pw.println(r);
+                        }
+                    
+                  }  //while end
+                    br.close();
+                    pw.flush();
+                    pw.close();
+                    file.delete();
+                    temp.renameTo(file);
+
+                    //System.out.println("File Modified"); 
+            }
+
+            if(usn1.contains("ec")){           
+                File temp = new File("ece/temp.txt");
+                PrintWriter pw = new PrintWriter(temp);
+                File file = new File("ece/"+v+".txt");
+                BufferedReader br = new BufferedReader(new FileReader(file));               
+                while((r= br.readLine()) !=null)
+                    {   
+                        String[] result = r.split("\\|");
+                        usn=result[0];
+                        if(usn.equals(usn1))
+                        {   
+                            name=result[1];
+                            phno= result[2];
+                            dob=result[3];
+                            System.out.println("Record found");
+                            System.out.println("Name: "+ name + "\nusn: " + usn + "\nyear: "+v  + "\nbranch: TCE"+ "\nphno: " + phno + "\ndate of birth: " + dob);
+                            System.out.print("enter Name: ");
+                            String name11 = scan.nextLine();            
+                            System.out.print("enter phno: ");
+                            String phno11 = scan.nextLine();
+                            System.out.print("enter dob: ");
+                            String dob11 = scan.nextLine();
+                            System.out.print("enter branch: ");
+                            String branch11 = scan.nextLine();
+                            if(!branch11.equalsIgnoreCase("ECE")){
+                                System.out.print("enter USN: ");
+                                String usn11 = scan.nextLine();
+                                System.out.print("enter Year of Studying: ");
+                                String year = scan.nextLine();
+                                String key=hashTable(branch11,year);
+                                write(name11,usn11,phno11,dob11,key);
+                                flag=1;
+                            }
+                            if(flag!=1){
+                                String b = usn + "|" + name11 + "|" + phno11 + "|" + dob11 + "|";
+                                pw.println(b);
+                                flag=1;
+                            }
+                        }
+                        else {
+                            pw.println(r);
+                        }
+                    
+                  }  //while end
+                    br.close();
+                    pw.flush();
+                    pw.close();
+                    file.delete();
+                    temp.renameTo(file);
+
+                    //System.out.println("File Modified"); 
+            }
+            
+            
+            if(flag==0)
+                        {
+                            System.out.println("Record NOT found");
+                            System.out.println(); 
+                        }
+        
+
+
+
+ 
+}
    
     public void write(String name, String usn, String phno, String dob, String key) throws FileNotFoundException
     {  
@@ -339,7 +530,7 @@ class fsMiniProj
             }
      }
    
-    public String hashTable(String branch, String sem)
+    public String hashTable(String branch, String year)
     {   
     String key2="";
     String key1="";
@@ -352,15 +543,34 @@ class fsMiniProj
         key1="3";
     else if(branch.equalsIgnoreCase("ece"))
         key1="4";
-    if(sem.equalsIgnoreCase("1"))
+    if(year.equalsIgnoreCase("1"))
         key2="1";
-    else if(sem.equalsIgnoreCase("2"))
+    else if(year.equalsIgnoreCase("2"))
         key2="2";
-    else if(sem.equalsIgnoreCase("3"))
+    else if(year.equalsIgnoreCase("3"))
         key2="3";
-    else if(sem.equalsIgnoreCase("4"))
+    else if(year.equalsIgnoreCase("4"))
         key2="4";
     key=key1+key2;
     return (key);
     }
+
+    public String hash1(String usn){
+        String yr="";
+        if(usn.contains("20")){
+            yr="1";
+        }
+        else if(usn.contains("19")){
+            yr="2";
+        }
+        else if(usn.contains("18")){
+            yr="3";
+        }
+        else if(usn.contains("17")){
+            yr="4";
+        }
+
+           return (yr);
+
+    }    
 }
